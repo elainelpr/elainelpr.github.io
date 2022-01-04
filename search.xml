@@ -203,6 +203,15 @@ OP三大原则
 ]]></content>
   </entry>
   <entry>
+    <title>Welcome To My Website</title>
+    <url>/2022/01/03/Welcome-To-My-Website-1/</url>
+    <content><![CDATA[<p>This is my personal website and it is my first time to try to do it. Usually, I will share and write articals about SDE and other areas in computer science that I am interested. I am a green hand in CS area, if someone read my article and find mistakes, welcome to tell me and we can discuss it together.</p>
+]]></content>
+      <tags>
+        <tag>-Welcome</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Network Note From Nesco Academy</title>
     <url>/2022/01/03/Network-note-from-nesco-academy/</url>
     <content><![CDATA[<p>基于Nesco Academy Network的学习笔记</p>
@@ -245,7 +254,7 @@ OP三大原则
 <ul>
 <li>in Mac: ifconfig</li>
 <li>in Windows: ipconfig</li>
-<li><em>DNS(Domain Name Service:域名服务器)</em>*<blockquote>
+<li><strong>DNS(Domain Name Service:域名服务器)</strong><blockquote>
 <p>无论何时给出什么名称，域名服务器都会相应所给名称的相应IP地址。 当有任何数据从我们的计算机出来时，DNS会将此名称解析为相应的IP地址</p>
 </blockquote>
 </li>
@@ -258,13 +267,13 @@ OP三大原则
 <li>Understand how to connect two different LAN using router therorectically</li>
 <li>Understand the difference between switch and router</li>
 </ul>
-<h3 id="4-1-Switch"><a href="#4-1-Switch" class="headerlink" title="4.1 Switch"></a>4.1 Switch</h3><blockquote>
+<h3 id="4-1-Switch"><a href="#4-1-Switch" class="headerlink" title="4.1  Switch"></a>4.1  Switch</h3><blockquote>
 <p>A switch is a networking hardware that connects devices on computer network to establish a local area network(LAN)</p>
 </blockquote>
 <p><font color=red> In the conputer network, each device is identified with the help of Ip and MAC address.</font></p>
 <p>The switch has the memory, so the switch can store the MAC address table in it memory</p>
 <p><strong>What is MAC address table?</strong><br>In MAC address table, 会将设备的MAC address与连接到switch上的端口对应起来(video:23)</p>
-<h3 id="4-2-Router"><a href="#4-2-Router" class="headerlink" title="4.2 Router"></a>4.2 Router</h3><blockquote>
+<h3 id="4-2-Router"><a href="#4-2-Router" class="headerlink" title="4.2  Router"></a>4.2  Router</h3><blockquote>
 <p>A router is a networking device that forwards data packet between computer newtorks<br>A router is connected to at least two networks, commonly two LANs or WANs or a LAN and its ISP’s network</p>
 </blockquote>
 <p>When we say computer networks, they are two different LAN.</p>
@@ -281,18 +290,95 @@ OP三大原则
 <li>The transfer the data to another interface(192.168.1.10)</li>
 <li>Finally, the data will be received by the destination</li>
 </ol>
-<h1 id="5-Basics-of-Bridge"><a href="#5-Basics-of-Bridge" class="headerlink" title="5 Basics of Bridge"></a>5 Basics of Bridge</h1>]]></content>
-      <tags>
-        <tag>network</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Welcome To My Website</title>
-    <url>/2022/01/03/Welcome-To-My-Website-1/</url>
-    <content><![CDATA[<p>This is my personal website and it is my first time to try to do it. Usually, I will share and write articals about SDE and other areas in computer science that I am interested. I am a green hand in CS area, if someone read my article and find mistakes, welcome to tell me and we can discuss it together.</p>
+<h2 id="5-Basics-of-Bridge"><a href="#5-Basics-of-Bridge" class="headerlink" title="5 Basics of Bridge"></a>5 Basics of Bridge</h2><ul>
+<li>Understand the basics of bridge</li>
+<li>Know the types of bridge</li>
+<li>Understand the working of bridge</li>
+<li>Understand the difference between router and bridge</li>
+</ul>
+<h3 id="5-1-Concept-of-the-Bridge"><a href="#5-1-Concept-of-the-Bridge" class="headerlink" title="5.1  Concept of the Bridge"></a>5.1  Concept of the Bridge</h3><ol>
+<li>Bridge=Repeater+Functionality of reading MAC address</li>
+<li>It is a layer 2 device</li>
+<li>It is also used for interconnecting two LANs on the <font color=red>same protocol</font></li>
+<li>It is also a two port device</li>
+</ol>
+<h3 id="5-2-Types-of-Bridges"><a href="#5-2-Types-of-Bridges" class="headerlink" title="5.2  Types of Bridges"></a>5.2  Types of Bridges</h3><ul>
+<li>Transparent Bridges<blockquote>
+<ul>
+<li>These are the bridge in which the stations are completely unaware of the bridge’s existance</li>
+<li>Reconfiguration of the station is unnecessary even if the bridge is added or removed from network(unlike the router: we used to give the IP address of the interface as the default gateway for all stations or PCs)</li>
+</ul>
+</blockquote>
+</li>
+<li>Sourece Routing Bridges<blockquote>
+<ul>
+<li>In these bridges, routing operation is performed by source station and the frame specified which route to follow  ??</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="5-3-Working-or-Bridges"><a href="#5-3-Working-or-Bridges" class="headerlink" title="5.3 Working or Bridges"></a>5.3 Working or Bridges</h2><p><img src="/2022/01/03/Network-note-from-nesco-academy/bridge.png" alt="img"></p>
+<p><strong>The differences between the Bridge and Router</strong><br><font size=4></p>
+<table>
+<thead>
+<tr>
+<th>Bridge</th>
+<th><small>Router</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><small>connect two LANs running in the same protocols</td>
+<td><small>connect two LANs running on the different protocols</td>
+</tr>
+<tr>
+<td><small>second layer device(process MAC address)</td>
+<td><small>third layer device(process IP address)</td>
+</tr>
+</tbody></table>
+<h2 id="6-Network-Devices"><a href="#6-Network-Devices" class="headerlink" title="6 Network Devices"></a>6 Network Devices</h2><ol>
+<li><p>Repeater</p>
+<blockquote>
+<p>First layer device, operate in the Physical layer. It just regenerates the signal in a single LAN network</p>
+</blockquote>
+</li>
+<li><p>Hub</p>
+<blockquote>
+<p>First layer device(LAN device). Shortcoming: It will broadcast whatever it receives</p>
+</blockquote>
+</li>
+<li><p>Switch</p>
+<blockquote>
+<p>Second layer device(LAN devcie). Connecting two devices which belong to the same single LAN.<br>Unlike the Hub, it can send the data to the exact receiver</p>
+</blockquote>
+</li>
+<li><p>Bridge</p>
+<blockquote>
+<p>Second layer device. It can also regenerates the signal</p>
+</blockquote>
+</li>
+<li><p>Router</p>
+<blockquote>
+<p>Third layer device. Make decisions based on the IP address</p>
+</blockquote>
+</li>
+<li><p>Multi-layer switch(Layer 3 swithc)</p>
+<blockquote>
+<p>can be the switch as well as the router</p>
+</blockquote>
+</li>
+<li><p>Brouter</p>
+<blockquote>
+<p>Combination of router and bridge</p>
+</blockquote>
+</li>
+<li><p>Modem</p>
+</li>
+<li><p>Firewall(Security Device)</p>
+</li>
+</ol>
 ]]></content>
       <tags>
-        <tag>-Welcome</tag>
+        <tag>network</tag>
       </tags>
   </entry>
 </search>
