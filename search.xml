@@ -203,18 +203,10 @@ OP三大原则
 ]]></content>
   </entry>
   <entry>
-    <title>Welcome To My Website</title>
-    <url>/2022/01/03/Welcome-To-My-Website-1/</url>
-    <content><![CDATA[<p>This is my personal website and it is my first time to try to do it. Usually, I will share and write articals about SDE and other areas in computer science that I am interested. I am a green hand in CS area, if someone read my article and find mistakes, welcome to tell me and we can discuss it together.</p>
-]]></content>
-      <tags>
-        <tag>-Welcome</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Network Note From Nesco Academy</title>
     <url>/2022/01/03/Network-note-from-nesco-academy/</url>
-    <content><![CDATA[<font face="Times New Roman">
+    <content><![CDATA[<p>基于Nesco Academy Network的学习笔记</p>
+<font face="Times New Roman">
 <font size=5>
 <word space=1>
 
@@ -264,6 +256,7 @@ OP三大原则
 <ul>
 <li>Know the basic of routers</li>
 <li>Understand how to connect two different LAN using router therorectically</li>
+<li>Understand the difference between switch and router</li>
 </ul>
 <h3 id="4-1-Switch"><a href="#4-1-Switch" class="headerlink" title="4.1 Switch"></a>4.1 Switch</h3><blockquote>
 <p>A switch is a networking hardware that connects devices on computer network to establish a local area network(LAN)</p>
@@ -280,11 +273,26 @@ OP三大原则
 <li>The switch can connect two computers that belong to the same LAN, while the router can connect two computers that belong to the different LANs.</li>
 <li>The router is a layer 3 device(network layer), while the switch is a 2 layer device(data linke layer)</li>
 <li>Router stores routing table</li>
+<li>Switch(Half/Full Duplex), Router(Full Duplex)</li>
 </ul>
-<h4 id="4-2-1-Working-of-Router"><a href="#4-2-1-Working-of-Router" class="headerlink" title="4.2.1 Working of Router"></a>4.2.1 Working of Router</h4><p><img src="/2022/01/03/Network-note-from-nesco-academy/router.png" alt="img"></p>
-]]></content>
+<h4 id="4-2-1-Working-of-Router"><a href="#4-2-1-Working-of-Router" class="headerlink" title="4.2.1 Working of Router"></a>4.2.1 Working of Router</h4><p><img src="/2022/01/03/Network-note-from-nesco-academy/router.png" alt="img"><br>The router has two interfaces, one interface connect one LAN, and another interface connect another LAN. </p>
+<ol>
+<li>The computer send data and 10.0.0.10 receive it.</li>
+<li>The transfer the data to another interface(192.168.1.10)</li>
+<li>Finally, the data will be received by the destination</li>
+</ol>
+<h1 id="5-Basics-of-Bridge"><a href="#5-Basics-of-Bridge" class="headerlink" title="5 Basics of Bridge"></a>5 Basics of Bridge</h1>]]></content>
       <tags>
         <tag>network</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Welcome To My Website</title>
+    <url>/2022/01/03/Welcome-To-My-Website-1/</url>
+    <content><![CDATA[<p>This is my personal website and it is my first time to try to do it. Usually, I will share and write articals about SDE and other areas in computer science that I am interested. I am a green hand in CS area, if someone read my article and find mistakes, welcome to tell me and we can discuss it together.</p>
+]]></content>
+      <tags>
+        <tag>-Welcome</tag>
       </tags>
   </entry>
 </search>
