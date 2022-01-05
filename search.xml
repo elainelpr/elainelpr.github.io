@@ -176,4 +176,26 @@ This is my personal website and it is my first time to try to do it. Usually, I 
         <tag>-Welcome</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Network Interview Note</title>
+    <url>/2022/01/05/Network-Interview-Note/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Interview</category>
+      </categories>
+      <tags>
+        <tag>Network</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C Plus Plus Interview Note</title>
+    <url>/2022/01/05/C-Plus-Plus-Interview-Note/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Interview</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
