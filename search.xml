@@ -225,7 +225,7 @@ This is my personal website and it is my first time to try to do it. Usually, I 
 <p>p指向一个int类型的变量，可以通过*p改变该变量的值。但是不能改变p所指的对象</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">*p=<span class="number">10</span>  <span class="comment">//legal</span></span><br><span class="line"><span class="keyword">int</span> y=<span class="number">3</span>;</span><br><span class="line">p=&amp;y    <span class="comment">//illegal</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="1-4-3-指向常量的常指针"><a href="#1-4-3-指向常量的常指针" class="headerlink" title="1.4.3  指向常量的常指针"></a>1.4.3  指向常量的常指针</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p=&amp;x</span><br></pre></td></tr></table></figure>
-<p>既不能更改p所指的对象，也不能通过*p改变变量x的值<br>如果是二维指针：<br><img src="/const_pointer.png" alt="img"></p>
+<p>既不能更改p所指的对象，也不能通过*p改变变量x的值<br>如果是二维指针：<br><img src="/2022/01/05/C-Plus-Plus-Interview-Note/cons_pointer.png" alt="img"></p>
 <blockquote>
 <p>conclude:  const影响的是离它最近的量</p>
 </blockquote>
