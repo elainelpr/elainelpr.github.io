@@ -227,13 +227,13 @@ This is my personal website and it is my first time to try to do it. Usually, I 
 <h3 id="1-4-3-指向常量的常指针"><a href="#1-4-3-指向常量的常指针" class="headerlink" title="1.4.3  指向常量的常指针"></a>1.4.3  指向常量的常指针</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p=&amp;x</span><br></pre></td></tr></table></figure>
 <p>既不能更改p所指的对象，也不能通过*p改变变量x的值<br>如果是二维指针：<br><img src="/2022/01/05/C-Plus-Plus-Interview-Note/cons_pointer.png" alt="img"></p>
 <blockquote>
-<p>conclude:  const影响的是离它最近的量</p>
-</blockquote>
+<p>conclude:  const影响的是离它最近的量  </p>
 <ol>
-<li>若const前面没有*(int * const p=&amp;x),则const影响的是该指针变量, 该变量的值不能改变，即不能指向其他的变量（ex:int * const p=&amp;x,p只能指向x)</li>
+<li>若const前面没有*(int * const p=&amp;x),则const影响的是该指针变量, 该变量的值不能改变，即不能指向其他的变量（ex:int * const p=&amp;x,p只能指向x)  </li>
 <li>若const前有一个*(const int * p)， 则const影响的是*p, 即该指针可以指向其他的变量，但不能通过 *p改变其所指的当前变量的值</li>
 </ol>
-<h2 id="1-5"><a href="#1-5" class="headerlink" title="1.5"></a>1.5</h2>]]></content>
+</blockquote>
+]]></content>
       <categories>
         <category>Interview</category>
       </categories>
