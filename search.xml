@@ -77,6 +77,8 @@
 <li>若const前有一个*(const int * p)， 则const影响的是*p, 即该指针可以指向其他的变量，但不能通过 *p改变其所指的当前变量的值</li>
 </ol>
 </blockquote>
+<h2 id="2-5-类中使用const"><a href="#2-5-类中使用const" class="headerlink" title="2.5 类中使用const"></a>2.5 类中使用const</h2><p><a href="https://blog.csdn.net/nawuyao/article/details/52748747">https://blog.csdn.net/nawuyao/article/details/52748747</a></p>
+<p>const、define的联系与区别</p>
 ]]></content>
       <categories>
         <category>Interview</category>
@@ -270,6 +272,44 @@ This is my personal website and it is my first time to try to do it. Usually, I 
 ]]></content>
       <tags>
         <tag>-Welcome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django</title>
+    <url>/2022/01/06/Django/</url>
+    <content><![CDATA[<font size=4>
+<font face=Times New Roman>
+
+<p>本文基于B站Djabgo（拉勾教育）学习笔记</p>
+<h1 id="Djngo"><a href="#Djngo" class="headerlink" title="Djngo"></a>Djngo</h1><h2 id="1-Web-前端开发介绍"><a href="#1-Web-前端开发介绍" class="headerlink" title="1 Web 前端开发介绍"></a>1 Web 前端开发介绍</h2><p>在web开发中所编写的服务器端的程序的目的是为了动态地生成网页（HTML组成），使用浏览器访问即可看到效果</p>
+<ol>
+<li><p>什么是客户端（浏览器端，前端），什么是移动端，什么是服务器端？<br>(1) 客户端：直接面向客户的一端叫做前端，基于web开发的叫做web前端（制作的网站:打开淘宝，京东等,使用手机访问）<br>(2) 手机，平板电脑等是移动端</p>
+</li>
+<li><p>什么是服务器，什么是云服务器</p>
+</li>
+<li><p>Web的工作原理<br><img src="/2022/01/06/Django/Web.png" alt="img"><br>(1) 打开电脑，输入网址–&gt;回车相当于向服务器发出请求。<br>(2) 通过域名或IP地址找到服务器，发出请求<br>(3) 服务器根据请求地址和请求方式找到对应的内容(ex:想访问某些商品信息，服务器在数据库中找到对应的商品信息–&gt;相应给客户端浏览器上)<br><img src="/2022/01/06/Django/web2.png" alt="img"><br>负载均衡负责分发，每次请求时，负责找到合适的服务器做相应</p>
+</li>
+<li><p>HTTP 协议</p>
+</li>
+</ol>
+<h2 id="2-HTML基础语法"><a href="#2-HTML基础语法" class="headerlink" title="2 HTML基础语法"></a>2 HTML基础语法</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>  </span><br><span class="line">             <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  <span class="comment">&lt;!--网页标题--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个网页<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://peiruliu.cn/&quot;</span>&gt;</span>我的个人网站<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">             </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>有两部分</li>
+</ul>
+<ol>
+<li><!DOCTYPES html>：类型</li>
+<li>每个网页的开头都有<html>, 结尾是</html><br>(1) head:<br>(2) body:网页的内容呈现都在body里面</li>
+</ol>
+<ul>
+<li>注释<br>&lt; !– 唯一的HTML注释 –&gt;</li>
+</ul>
+<h2 id="3-Django框架介绍与安装"><a href="#3-Django框架介绍与安装" class="headerlink" title="3 Django框架介绍与安装"></a>3 Django框架介绍与安装</h2><ul>
+<li>如何找到 <a href="http://127.0.0.1:8000/myapp/">http://127.0.0.1:8000/myapp/</a> 该访问路径</li>
+<li>子路由和父路由</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Django</tag>
       </tags>
   </entry>
 </search>
