@@ -280,7 +280,7 @@ This is my personal website and it is my first time to try to do it. Usually, I 
     <content><![CDATA[<font size=4>
 <font face=Times New Roman>
 
-<p>本文基于B站Djabgo（拉勾教育）学习笔记</p>
+<p>本文基于B站Django（拉勾教育）学习笔记</p>
 <h1 id="Djngo"><a href="#Djngo" class="headerlink" title="Djngo"></a>Djngo</h1><h2 id="1-Web-前端开发介绍"><a href="#1-Web-前端开发介绍" class="headerlink" title="1 Web 前端开发介绍"></a>1 Web 前端开发介绍</h2><p>在web开发中所编写的服务器端的程序的目的是为了动态地生成网页（HTML组成），使用浏览器访问即可看到效果</p>
 <ol>
 <li><p>什么是客户端（浏览器端，前端），什么是移动端，什么是服务器端？<br>(1) 客户端：直接面向客户的一端叫做前端，基于web开发的叫做web前端（制作的网站:打开淘宝，京东等,使用手机访问）<br>(2) 手机，平板电脑等是移动端</p>
@@ -297,14 +297,14 @@ This is my personal website and it is my first time to try to do it. Usually, I 
 <li>有两部分</li>
 </ul>
 <ol>
-<li><!DOCTYPES html>：类型</li>
+<li>&lt; !DOCTYPES html &gt; : 类型</li>
 <li>每个网页的开头都有<html>, 结尾是</html><br>(1) head:<br>(2) body:网页的内容呈现都在body里面</li>
 </ol>
 <ul>
 <li>注释<br>&lt; !– 唯一的HTML注释 –&gt;</li>
 </ul>
 <h2 id="3-Django框架介绍与安装"><a href="#3-Django框架介绍与安装" class="headerlink" title="3 Django框架介绍与安装"></a>3 Django框架介绍与安装</h2><ul>
-<li>如何找到 <a href="http://127.0.0.1:8000/myapp/">http://127.0.0.1:8000/myapp/</a> 该访问路径</li>
+<li>如何找到 <a href="http://127.0.0.1:8000/myapp/">http://127.0.0.1:8000/myapp/</a> 该访问路径<br>一旦myweb(项目)下的urs文件被改变，默认的welcome页面就不会再显示</li>
 <li>子路由和父路由</li>
 </ul>
 ]]></content>
