@@ -248,6 +248,9 @@ OP三大原则
 <p> 动态扩展并不是在原空间之后续接新的空间，而是找更大的内存空间，然后将元数据拷贝到新空间，释放原空间</p>
 <h3 id="vector构造函数"><a href="#vector构造函数" class="headerlink" title="vector构造函数"></a>vector构造函数</h3><p>vector<T> v;  默认构造函数<br>vector(v.begin(), v.end()); 将v[begin(), end())区间内的元素拷贝给本身。注意前闭后开<br>vector(n, elem)   将n个elem拷贝给本身<br>vector(const vector &amp;vec)  拷贝构造函数</p>
 ]]></content>
+      <categories>
+        <category>Notes</category>
+      </categories>
       <tags>
         <tag>C++</tag>
       </tags>
@@ -280,7 +283,7 @@ This is my personal website and it is my first time to try to do it. Usually, I 
     <content><![CDATA[<font size=4>
 <font face=Times New Roman>
 
-<p>本文基于B站Django（拉勾教育）学习笔记</p>
+<p>本文是基于<a href="https://b23.tv/Tga4ZV8">django入门</a>和<a href="https://b23.tv/hWiSZ8V">适合零基础小白的Django教程</a>学习笔记</p>
 <h1 id="Djngo"><a href="#Djngo" class="headerlink" title="Djngo"></a>Djngo</h1><h2 id="1-Web-前端开发介绍"><a href="#1-Web-前端开发介绍" class="headerlink" title="1 Web 前端开发介绍"></a>1 Web 前端开发介绍</h2><p>在web开发中所编写的服务器端的程序的目的是为了动态地生成网页（HTML组成），使用浏览器访问即可看到效果</p>
 <ol>
 <li><p>什么是客户端（浏览器端，前端），什么是移动端，什么是服务器端？<br>(1) 客户端：直接面向客户的一端叫做前端，基于web开发的叫做web前端（制作的网站:打开淘宝，京东等,使用手机访问）<br>(2) 手机，平板电脑等是移动端</p>
@@ -303,13 +306,85 @@ This is my personal website and it is my first time to try to do it. Usually, I 
 <ul>
 <li>注释<br>&lt; !– 唯一的HTML注释 –&gt;</li>
 </ul>
+<h3 id="2-1-HTML常用标签"><a href="#2-1-HTML常用标签" class="headerlink" title="2.1 HTML常用标签"></a>2.1 HTML常用标签</h3><ul>
+<li>格式化标签</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;hn&gt;...&lt;hn&gt;  其中n为1-6的值。标题标签</span><br><span class="line">&lt;i&gt;斜体&lt;/i&gt;    </span><br><span class="line">&lt;em&gt;强调斜体&lt;/em&gt;</span><br><span class="line">&lt;b&gt;加粗&lt;/b&gt;</span><br><span class="line">&lt;strong&gt;强调加粗&lt;/strong&gt;</span><br><span class="line">&lt;cite&gt;作品的标题(引用)&lt;/cite&gt;</span><br><span class="line">&lt;sub&gt;下标&lt;/sub&gt;</span><br><span class="line">&lt;sup&gt;上标&lt;/sup&gt;</span><br><span class="line">&lt;del&gt;删除线&lt;/del&gt;</span><br><span class="line">&lt;u&gt;u下划线标签&lt;/u&gt;&lt;br/&gt;  &lt;!-- br是换行的意思--&gt;</span><br><span class="line">&lt;u&gt;u下划线标签&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</span><br><span class="line">&lt;p&gt;换段&lt;/p&gt;</span><br><span class="line">&lt;hr/&gt;水平分割线</span><br><span class="line">&lt;ul&gt;...&lt;/ul&gt; 无序列表</span><br><span class="line">&lt;ol&gt;...&lt;/ol&gt;有序列表， 其中type类型值：Aali1 start属性表示起始值</span><br><span class="line">&lt;li&gt;...&lt;li&gt; 列表项</span><br><span class="line">&lt;div&gt;...&lt;div&gt;常用于组合块级元素，以便通过CSS来对这些元素进行格式化. 非常常用，默认的div标签会自动换行</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width:600px&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  This is my first website</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  Welcome to visit it</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">爱好：</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>reading the book<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>surfing the internet<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>climbing the mountain<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>singing a song<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>reading the book<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>surfing the internet<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>climbing the mountain<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>singing a song<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>图片标签</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img /&gt; 在网页中插入一张图片</span><br><span class="line">• 属性：</span><br><span class="line">• src： 图片名及url地址</span><br><span class="line">• alt: 图片加载失败时的提示信息</span><br><span class="line">• title：文字提示属性</span><br><span class="line">• width：图片宽度</span><br><span class="line">• height：图片高度</span><br><span class="line">• border：边框线粗细</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;app.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;app&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span>&gt;</span>  <span class="comment">&lt;!--- 指定width, height会等比缩放 ---&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png&quot;</span> <span class="attr">title</span>=<span class="string">&quot;google 图片&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>超链接标签</li>
+</ul>
 <h2 id="3-Django框架介绍与安装"><a href="#3-Django框架介绍与安装" class="headerlink" title="3 Django框架介绍与安装"></a>3 Django框架介绍与安装</h2><ul>
 <li>如何找到 <a href="http://127.0.0.1:8000/myapp/">http://127.0.0.1:8000/myapp/</a> 该访问路径<br>一旦myweb(项目)下的urs文件被改变，默认的welcome页面就不会再显示</li>
 <li>子路由和父路由</li>
 </ul>
-]]></content>
+<h2 id="4-app创建与说明"><a href="#4-app创建与说明" class="headerlink" title="4 app创建与说明"></a>4 app创建与说明</h2><p><img src="/2022/01/06/Django/app.png" alt="img"></p>
+<ul>
+<li>确保APP已注册（在settings–&gt; INSTALL_APPS: ‘myapp.apps.MyappConfig’)</li>
+<li>编写url和视图函数的对应关系(注意是myweb中的urls.py中)<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># www.xxx.com/index/ -&gt; 函数（myapp的views里面）</span></span><br><span class="line"><span class="keyword">from</span> myapp <span class="keyword">import</span> views</span><br><span class="line">path(<span class="string">&#x27;index/&#x27;</span>, views.index) <span class="comment">#只要用户访问上面的url，就会在views.py文件中找index函数并执行该函数</span></span><br></pre></td></tr></table></figure></li>
+<li>编写视图函数</li>
+<li>启动jango项目</li>
+</ul>
+<h2 id="5-模板和静态文件"><a href="#5-模板和静态文件" class="headerlink" title="5 模板和静态文件"></a>5 模板和静态文件</h2><h2 id="5-1-模板"><a href="#5-1-模板" class="headerlink" title="5.1 模板"></a>5.1 模板</h2><p>在myapp中的views.py文件做如下修改:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_list</span>(<span class="params">request</span>):</span></span><br><span class="line">  <span class="comment"># 在app的目录下的templates寻找user_list.html(根据app的注册顺序，逐一去他们的templates目录中寻找)</span></span><br><span class="line">  <span class="keyword">return</span> render(request, <span class="string">&quot;user_list.html&quot;</span>)  <span class="comment">#在render内部会找到该文件并读取</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在对应的APP下面写templates,并在其中添加文件(add.html, user_list.html, etc).</p>
+</blockquote>
+<h2 id="5-2-静态文件"><a href="#5-2-静态文件" class="headerlink" title="5.2 静态文件"></a>5.2 静态文件</h2><p>在开发过程中，一般将：</p>
+<ul>
+<li>图片</li>
+<li>CSS</li>
+<li>js</li>
+</ul>
+<p>都当做静态文件处理。</p>
+<blockquote>
+<p>必须在当前的app(myapp)中新建static文件夹，并将图片放入其中.而在static文件夹下面，一般需要css, img, js, plugins</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--插入图片--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/static/img/1.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--jango推荐写法--&gt;</span></span><br><span class="line">&#123;% load static %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&#123;% static &#x27;plugins/bootstrap-3.4.1/css/bootstrap.css&#x27; %&#125;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&#123;% static &#x27;img/1.png&#x27; %&#125;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Notes</category>
+      </categories>
       <tags>
         <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python 及爬虫笔记</title>
+    <url>/2022/01/08/Python-Note/</url>
+    <content><![CDATA[<p>本文是基于<a href="https://b23.tv/REpYmpP">黑马程序员Python教程</a>的学习笔记<br><font size=3><br><font face=Times New Roman></p>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="1-1-字符串切片"><a href="#1-1-字符串切片" class="headerlink" title="1.1 字符串切片"></a>1.1 字符串切片</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">hello=<span class="string">&quot;hello world&quot;</span></span><br><span class="line"><span class="built_in">print</span>(hello[<span class="number">2</span>:<span class="number">4</span>])</span><br><span class="line"><span class="built_in">print</span>(hello[-<span class="number">3</span>:-<span class="number">1</span>])  <span class="comment">#含头不含尾</span></span><br><span class="line"></span><br><span class="line">length=<span class="built_in">len</span>(hello)   <span class="comment">#获得hello字符串的长度</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-函数"><a href="#2-函数" class="headerlink" title="2 函数"></a>2 函数</h2><h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><blockquote>
+<p>模拟浏览器，发送请求，获取响应<br>爬虫是模拟客户端(主要指浏览器)发送网络请求，接受请求响应，一种按照一定规则，自动地抓取互联网信息的程序</p>
+</blockquote>
+<ul>
+<li>原则上，只要客户端能做的事，爬虫都能做</li>
+<li>爬虫也只能获取客户端（浏览器）所展示出来的数据</li>
+</ul>
+<h2 id="1-爬虫流程"><a href="#1-爬虫流程" class="headerlink" title="1 爬虫流程"></a>1 爬虫流程</h2><ol>
+<li>获取url</li>
+<li>向url发送请求，并获取响应（需要http协议）</li>
+<li>如果从响应中提取url,则继续发送请求获取响应</li>
+<li>如果从响应中提取数据，则将数据进行保存</li>
+</ol>
+<h2 id="http-与-https的区别"><a href="#http-与-https的区别" class="headerlink" title="http 与 https的区别"></a>http 与 https的区别</h2><blockquote>
+<p>https 比 http更安全，但是性能更低</p>
+</blockquote>
+<ul>
+<li>HTTP: 超文本传输协议，默认端口号是80</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Notes</category>
+      </categories>
+      <tags>
+        <tag>Python &amp; 爬虫</tag>
       </tags>
   </entry>
 </search>
