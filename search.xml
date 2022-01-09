@@ -331,12 +331,40 @@ This is my personal website and it is my first time to try to do it. Usually, I 
 <li>编写视图函数</li>
 <li>启动jango项目</li>
 </ul>
-<h2 id="5-模板和静态文件"><a href="#5-模板和静态文件" class="headerlink" title="5 模板和静态文件"></a>5 模板和静态文件</h2><h2 id="5-1-模板"><a href="#5-1-模板" class="headerlink" title="5.1 模板"></a>5.1 模板</h2><p>在myapp中的views.py文件做如下修改:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_list</span>(<span class="params">request</span>):</span></span><br><span class="line">  <span class="comment"># 在app的目录下的templates寻找user_list.html(根据app的注册顺序，逐一去他们的templates目录中寻找)</span></span><br><span class="line">  <span class="keyword">return</span> render(request, <span class="string">&quot;user_list.html&quot;</span>)  <span class="comment">#在render内部会找到该文件并读取</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-Django-的URL路由配置"><a href="#5-Django-的URL路由配置" class="headerlink" title="5 Django 的URL路由配置"></a>5 Django 的URL路由配置</h2><p>在urls.py文件中</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">path(<span class="string">&quot;find/&lt;int:sid&gt;&quot;</span>, views.find), <span class="comment">#在find/后加上任意整数进行访问， views中的find 函数需要有sid</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#在views中</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">request, sid</span>):</span></span><br><span class="line">  <span class="keyword">return</span> HttpResponse(<span class="string">&quot;find....%d&quot;</span>%(sid))</span><br><span class="line"></span><br><span class="line">path(<span class="string">&quot;find/&lt;int:sid&gt;/&lt;str:name&gt;&quot;</span>, views.find2)</span><br><span class="line"></span><br><span class="line"><span class="comment">#在views中</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find2</span>(<span class="params">request, sid, name</span>):</span></span><br><span class="line">  <span class="keyword">return</span> HttpResponse(<span class="string">&quot;find2....%d:%s&quot;</span>%(sid,name))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">request, sid=<span class="number">0</span>, name=<span class="string">&quot;&quot;</span></span>):</span>  <span class="comment">#加入默认值， 不传参数也可以访问</span></span><br><span class="line">  <span class="keyword">return</span> HttpResponse(<span class="string">&quot;find2....%d:%s&quot;</span>%(sid,name))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通过浏览器访问服务：<br>  127.0.0.1：8000/index–&gt; root url(根路由)–&gt;加载子路由（myweb/urls.py)–&gt;正则匹配访问路径（path)–&gt;视图函数（views.index)–&gt; views.py index()响应内容</p>
+</blockquote>
+<ul>
+<li>什么是根路由，什么是子路由？<blockquote>
+<pre><code>s
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<p>如果在每一个app中创建子路由，则：</p>
+<ol>
+<li>在myapp中创建urls.py文件<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views <span class="comment"># . represents the currecnt dir</span></span><br><span class="line">urlpatterns=[path(<span class="string">&quot;myapp/&quot;</span>, views.urls)]</span><br></pre></td></tr></table></figure></li>
+<li>更改myweb中的urls.py文件<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include</span><br><span class="line">ulspatterns =[</span><br><span class="line">  path(<span class="string">&quot;&quot;</span>, include(<span class="string">&#x27;myapp.urls&#x27;</span>)), <span class="comment">#在当前总路由文件路由中导入子路由文件</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="5-1-跳转-重定向"><a href="#5-1-跳转-重定向" class="headerlink" title="5.1 跳转/重定向"></a>5.1 跳转/重定向</h3><ul>
+<li>根据路由名称反向生成url请求地址</li>
+</ul>
+<ol>
+<li>在urls.py中<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">urlspatterns=[</span><br><span class="line">  path(<span class="string">&quot;&quot;</span>, views.index, name=<span class="string">&quot;index&quot;</span>),  <span class="comment">#该name可以帮助反向生成前面的url地址</span></span><br><span class="line">  path(<span class="string">&quot;add/&quot;</span>, views.add, name=<span class="string">&quot;add&quot;</span>),</span><br><span class="line">  path(<span class="string">&quot;find/&lt;int: sid&gt;/&lt;str: name&gt;/&quot;</span>, views.find),  </span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+<li>在views.py中<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> reverse</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>(<span class="params">request</span>):</span></span><br><span class="line">  <span class="built_in">print</span>(reverse(<span class="string">&quot;index&quot;</span>)</span><br><span class="line">  <span class="built_in">print</span>(reverse(<span class="string">&quot;find&quot;</span>, args=(<span class="number">100</span>,<span class="string">&#x27;elaine&#x27;</span>)))  </span><br><span class="line">  <span class="keyword">return</span> HttpReponse(<span class="string">&quot;Hello world&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>跳转/重定向<br>在views.py文件中<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> redirect</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>(<span class="params">request</span>):</span></span><br><span class="line">  <span class="keyword">return</span> redirect(reverse(<span class="string">&quot;find&quot;</span>, args=(<span class="number">100</span>,<span class="string">&#x27;elaine&#x27;</span>)))  <span class="comment"># 执行浏览器重定向（页面跳转）</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-模板和静态文件"><a href="#6-模板和静态文件" class="headerlink" title="6 模板和静态文件"></a>6 模板和静态文件</h2><h3 id="6-1-模板"><a href="#6-1-模板" class="headerlink" title="6.1 模板"></a>6.1 模板</h3>在myapp中的views.py文件做如下修改:<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_list</span>(<span class="params">request</span>):</span></span><br><span class="line">  <span class="comment"># 在app的目录下的templates寻找user_list.html(根据app的注册顺序，逐一去他们的templates目录中寻找)</span></span><br><span class="line">  <span class="keyword">return</span> render(request, <span class="string">&quot;user_list.html&quot;</span>)  <span class="comment">#在render内部会找到该文件并读取</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>在对应的APP下面写templates,并在其中添加文件(add.html, user_list.html, etc).</p>
 </blockquote>
-<h2 id="5-2-静态文件"><a href="#5-2-静态文件" class="headerlink" title="5.2 静态文件"></a>5.2 静态文件</h2><p>在开发过程中，一般将：</p>
+</li>
+</ul>
+<h2 id="6-2-静态文件"><a href="#6-2-静态文件" class="headerlink" title="6.2 静态文件"></a>6.2 静态文件</h2><p>在开发过程中，一般将：</p>
 <ul>
 <li>图片</li>
 <li>CSS</li>
@@ -346,7 +374,9 @@ This is my personal website and it is my first time to try to do it. Usually, I 
 <blockquote>
 <p>必须在当前的app(myapp)中新建static文件夹，并将图片放入其中.而在static文件夹下面，一般需要css, img, js, plugins</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--插入图片--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/static/img/1.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--jango推荐写法--&gt;</span></span><br><span class="line">&#123;% load static %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&#123;% static &#x27;plugins/bootstrap-3.4.1/css/bootstrap.css&#x27; %&#125;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&#123;% static &#x27;img/1.png&#x27; %&#125;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--插入图片--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/static/img/1.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--jango推荐写法--&gt;</span></span><br><span class="line">&#123;% load static %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&#123;% static &#x27;plugins/bootstrap-3.4.1/css/bootstrap.css&#x27; %&#125;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&#123;% static &#x27;img/1.png&#x27; %&#125;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="7-Django的模型层"><a href="#7-Django的模型层" class="headerlink" title="7 Django的模型层"></a>7 Django的模型层</h1>]]></content>
       <categories>
         <category>Notes</category>
       </categories>
