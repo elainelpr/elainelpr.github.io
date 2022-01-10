@@ -357,7 +357,7 @@ This is my personal website and it is my first time to try to do it. Usually, I 
 <blockquote>
 <p>在对应的APP下面写templates,并在其中添加文件(add.html, user_list.html, etc).</p>
 </blockquote>
-<h2 id="6-2-静态文件"><a href="#6-2-静态文件" class="headerlink" title="6.2 静态文件"></a>6.2 静态文件</h2><p>在开发过程中，一般将：</p>
+<h3 id="6-2-静态文件"><a href="#6-2-静态文件" class="headerlink" title="6.2 静态文件"></a>6.2 静态文件</h3><p>在开发过程中，一般将：</p>
 <ul>
 <li>图片</li>
 <li>CSS</li>
@@ -369,7 +369,7 @@ This is my personal website and it is my first time to try to do it. Usually, I 
 </blockquote>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--插入图片--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/static/img/1.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--jango推荐写法--&gt;</span></span><br><span class="line">&#123;% load static %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&#123;% static &#x27;plugins/bootstrap-3.4.1/css/bootstrap.css&#x27; %&#125;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&#123;% static &#x27;img/1.png&#x27; %&#125;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="7-Django的模型层"><a href="#7-Django的模型层" class="headerlink" title="7 Django的模型层"></a>7 Django的模型层</h1><ol>
+<h2 id="7-Django的模型层"><a href="#7-Django的模型层" class="headerlink" title="7 Django的模型层"></a>7 Django的模型层</h2><ol>
 <li>创建project<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">django-admin startproject mydemo</span><br></pre></td></tr></table></figure></li>
 <li>进入创建的project的dir, 创建app<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 manage.py startapp myapp</span><br></pre></td></tr></table></figure></li>
 <li>准备数据库（使用sudo -u postgres psql进入数据库）<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 创建名为myapp的数据库</span><br><span class="line"> CREATE DATABASE mydb; </span><br><span class="line"> # 创建用户名和密码</span><br><span class="line"> CREATE USER myuser WITH ENCRYPTED PASSWORD &#x27;mypass&#x27;; </span><br><span class="line"> # 给创建的用户授权</span><br><span class="line"> GRANT ALL PRIVILEGES ON DATABASE mydb TO myuser;</span><br><span class="line"></span><br><span class="line"> # 以下设置可手动进行设置，也可以在postgresql.conf中进行配置</span><br><span class="line"> # 设置客户端字符为utf-8，防止乱码</span><br><span class="line"> ALTER ROLE myuser SET client_encoding TO &#x27;utf8&#x27;;</span><br><span class="line"> # 事务相关设置 - 推荐</span><br><span class="line"> ALTER ROLE myuser SET default_transaction_isolation TO &#x27;read committed&#x27;;</span><br><span class="line"> # 设置数据库时区为UTC - 推荐</span><br><span class="line"> ALTER ROLE myuser SET timezone TO &#x27;UTC&#x27;;</span><br></pre></td></tr></table></figure></li>
