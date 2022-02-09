@@ -278,6 +278,266 @@ This is my personal website and it is my first time to try to do it. Usually, I 
       </tags>
   </entry>
   <entry>
+    <title>Network Note From Nesco Academy</title>
+    <url>/2022/01/03/Network-note-from-nesco-academy/</url>
+    <content><![CDATA[<p>基于Nesco Academy Network的学习笔记</p>
+<font face="Times New Roman">
+<font size=5>
+<word space=1>
+
+<h1 id="Concurrency"><a href="#Concurrency" class="headerlink" title="Concurrency"></a>Concurrency</h1><ul>
+<li><p>Multiprogramming:</p>
+<ul>
+<li>Supported by most all current operating systems</li>
+<li>More than one “unit of execution” at a time</li>
+</ul>
+</li>
+<li><p>Uniprogramming</p>
+<ul>
+<li>Easier to design; no concurrency</li>
+</ul>
+</li>
+</ul>
+<h2 id="Introduction-to-concurrency"><a href="#Introduction-to-concurrency" class="headerlink" title="Introduction to concurrency"></a>Introduction to concurrency</h2><ul>
+<li><p>Properties of concurrent computer systems</p>
+<ul>
+<li>Multiply threads</li>
+<li>Shared resources(Memory-heaps, globals, devices)</li>
+</ul>
+</li>
+<li><p>Benign Concurrency</p>
+<ul>
+<li>No shared data or communication</li>
+<li>Read-only data(constant)</li>
+</ul>
+</li>
+<li><p>What is shared?</p>
+<ul>
+<li>Local variables are not shared(never store a pointer to local variable in a global data structure)</li>
+<li>Global variables are shared(stored in data segment, accessible to all threads)</li>
+<li>Heap variables can be shared</li>
+</ul>
+</li>
+<li><p>Risk Concurrency</p>
+</li>
+</ul>
+<ol>
+<li>Two threads access a shared resource without any synchronization</li>
+<li>At least one modifies the resources<blockquote>
+<p>This creates a race condition: when we have two threads that are accessing the same data without any kind of rules for access</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="1-Process"><a href="#1-Process" class="headerlink" title="1 Process"></a>1 Process</h2><p>参考文章[<a href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html]">https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html]</a></p>
+<blockquote>
+<p>A process is an abstraction of a running program. Process management is basically a way that the operating system manages the programs that we’ve opened.</p>
+</blockquote>
+<ul>
+<li>Process stands for the single task, the CPU can handle one process while the other process will not be handled. Each process includes multiple threads.</li>
+<li>Storage space: If the storage space is shared in the process, it means that each thread can use this space. But the size of each space is different, it means that when the thread use this space, other threads cannot use it until this thread finish its assingment.<ul>
+<li>Mutual exclusion(Mutex): To avoid other threads use this space-&gt; use Mutex, once the thread notice this, they will wait int line. <font coloc=red>It can avoid multiple threads read and write the same storage.</font></li>
+</ul>
+</li>
+<li>Some memory areas can only be used by a fixed number of threads. Once the number of the threads which want use the same memory areas is larger than this number, other threads will wait in line.<ul>
+<li>Semaphore: 在门口挂n把钥匙。进去的人就取一把钥匙，出来时再把钥匙挂回原处。后到的人发现钥匙架空了，就知道必须在门口排队等着了。<font color= red>用来保证多个线程不会互相冲突</font>。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>inlcude:</p>
+</blockquote>
+<ol>
+<li>以多进程形式，允许多个任务同时运行；</li>
+<li>以多线程形式，允许单个任务分成不同的部分运行；</li>
+<li>提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。<h3 id="1-1-Process-Execution"><a href="#1-1-Process-Execution" class="headerlink" title="1.1 Process Execution"></a>1.1 Process Execution</h3></li>
+</ol>
+<ul>
+<li>OS creates a process <large> that contains code and data and manage the process until it terminates</li>
+<li>Every Process contains certain information(PID, state, PC, stack pointer, CPU registers, memory management info)<h3 id="1-1-Process-State"><a href="#1-1-Process-State" class="headerlink" title="1.1 Process State"></a>1.1 Process State</h3></li>
+</ul>
+<ol>
+<li>New: The process is being created</li>
+<li>Ready: The process is waiting to be assigned to the processor</li>
+<li>Running: Instrcutions are being executed</li>
+<li>Waiting: The process is waiting for some event to occur(ex:I/O completion or reception of signal)</li>
+<li>Terminatied: The process has finished the execution<br><img src="/2022/01/03/Network-note-from-nesco-academy/process.png" alt="img"></li>
+</ol>
+<h3 id="1-2-Process-Control-Block-PCB"><a href="#1-2-Process-Control-Block-PCB" class="headerlink" title="1.2 Process Control Block(PCB)"></a>1.2 Process Control Block(PCB)</h3><blockquote>
+<p>When the operate system manage and control the process, it should know the position of the process.  In additon, it needs to know the ID, state, PC, priority, stack pointer etc of the process. So we use the PCB to store this information.</p>
+</blockquote>
+<h2 id="2-Thread"><a href="#2-Thread" class="headerlink" title="2 Thread"></a>2 Thread</h2><blockquote>
+<p>A thread is the unit of execution within a process.</p>
+</blockquote>
+<h1 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h1><h2 id="1-Addressing-in-Networking"><a href="#1-Addressing-in-Networking" class="headerlink" title="1 Addressing in Networking"></a>1 Addressing in Networking</h2><p><img src="/2022/01/03/Network-note-from-nesco-academy/1.png" alt="image"> </p>
+<h3 id="1-1-Port-number-and-IP-addressing"><a href="#1-1-Port-number-and-IP-addressing" class="headerlink" title="1.1 Port number and IP addressing"></a>1.1 Port number and IP addressing</h3><p>In transport layer, it will add the source port number and destination port number</p>
+<font color=red>
+
+<p>Transport Layer: port number<br>Network Layer: IP address<br>Data Link Layer: MAC address</font>  </p>
+<p>Data Link Layer, the entire content will be converted to 0 and 1 and then provide this to the router</p>
+<p>For the picture above, actuall, source port number and destination port number are 16-bits.<br>If it is IPV4 address, the IP address should be 32 bits and for IPV6 address, the IP address should be in 128 bits</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="addition">! IP address can be IPV4 and IPV6</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-IP-addressing-and-MAC-addressing"><a href="#1-2-IP-addressing-and-MAC-addressing" class="headerlink" title="1.2 IP addressing and MAC addressing"></a>1.2 IP addressing and MAC addressing</h3><p><img src="/2022/01/03/Network-note-from-nesco-academy/2.png" alt="image"></p>
+<p>In LAN1, for the sender, A is IP address and 10 is MAC address. For the router, F is the IP address and 20 is the MAC address. MAC address 是48位</p>
+<p>在20，10中会发现，receiver的MAC is 95, but we do not use it, 我们将借助名称或IP地址与其他设备进行通信。 我们永远不会提供MAC address进行通信。 20代表的是router1的MAC address</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="addition">! 视频9：00内容</span></span><br></pre></td></tr></table></figure>
+<p>The exit point of router1, we can notice that the MAC address is changed.</p>
+<p>Router1 collects all physical layer information and construct the data link layer part, after receiving the data link layer part it opens and sees what is the destination MAC address. And the MAC address is same with the router1 so it knows that this part of data is for it. And then it opens the network layer information and it finds different destination IP address, so the router concludes that this packet is not for this router.</p>
+<p><font color=red>The router then delete the source and destination MAC address and put the new MAC address</p>
+<p>如果接受者要回复发送者，则swap source MAC address and destination MAC address(ex:original-&gt; 95, 66, now-&gt; 66, 95) also, swap source IP address(A) and destination IP address(P)</font></p>
+<p>像router这样的中间设备会检查physical layer information, data link layer information and network layer information</p>
+<h2 id="2-The-TCP-IP-Protocol-Suite"><a href="#2-The-TCP-IP-Protocol-Suite" class="headerlink" title="2 The TCP/IP Protocol Suite"></a>2 The TCP/IP Protocol Suite</h2><p><img src="/2022/01/03/Network-note-from-nesco-academy/TCP_layer.png" alt="image"></p>
+<p>In TCP layer:OSI-&gt; application layer, presentation layer and session layer-&gt;TCP application layer<br><strong>The TCP model is the actually implemented model, while the OSI model is just a guidline.</strong></p>
+<p>Four layers in TCP</p>
+<ul>
+<li>Application: Represents data to the user, plus encoding and dialog control</li>
+<li>Transport: Supports communication between diverse devices across diverse network</li>
+<li>Internet: Determines the best path throuugh the network</li>
+<li>Network Access: Controls the hardware and media that make up the network</li>
+</ul>
+<p><img src="/2022/01/03/Network-note-from-nesco-academy/TCP_model.png" alt="img"></p>
+<p><font color=blue>PROTOCOL DATA UNIT(PDU)</font><br>Protocol data unit are named according to the protocol of the TCP/IP suite:data, segment, packet, frame, and bits.</p>
+<p>The application layer information or application PDU is called data.</p>
+<p>Once the transport layer information(port number) is added with the application data — segment.</p>
+<p><strong>Application Layer PDU – Data</strong><br><strong>Transport Layer PDU – Segment</strong><br><strong>Network Layer PDU – Packet</strong><br><strong>Data Link Layer PDU – Frame</strong><br>(These frames are converted into 0 and 1 in physical layer)<br><strong>Physical Layer PDU – Bits</strong></p>
+<h2 id="3-Basic-Networking-Command"><a href="#3-Basic-Networking-Command" class="headerlink" title="3 Basic Networking Command"></a>3 Basic Networking Command</h2><p>Every IP address is always accompanied by the Subnet Mask(子网掩码) and this Subnet Mask only determines who are the neighbors in our network</p>
+<ul>
+<li>in Mac: ifconfig</li>
+<li>in Windows: ipconfig</li>
+<li><strong>DNS(Domain Name Service:域名服务器)</strong><blockquote>
+<p>无论何时给出什么名称，域名服务器都会相应所给名称的相应IP地址。 当有任何数据从我们的计算机出来时，DNS会将此名称解析为相应的IP地址</p>
+</blockquote>
+</li>
+</ul>
+<p><font color=red>command:nslookup – 查询DNS服务器以获得给定名称的IP地址</font><br>ex:peiruliu.cn –&gt; IP address由DNS解析<br>检查电脑能否访问该网站: ping website’s IP. if there is no loss, it is correct<br>Ping can check whether two computers are reachable<br><img src="/2022/01/03/Network-note-from-nesco-academy/IP.png" alt="img"></p>
+<p>trace the route from my computer to the peiruliu.cn:tracerout<br><img src="/2022/01/03/Network-note-from-nesco-academy/trace.png" alt="img"></p>
+<h2 id="4-Basic-of-Router"><a href="#4-Basic-of-Router" class="headerlink" title="4 Basic of Router"></a>4 Basic of Router</h2><p>In this session, we will be able to </p>
+<ul>
+<li>Know the basic of routers</li>
+<li>Understand how to connect two different LAN using router therorectically</li>
+<li>Understand the difference between switch and router</li>
+</ul>
+<h3 id="4-1-Switch"><a href="#4-1-Switch" class="headerlink" title="4.1  Switch"></a>4.1  Switch</h3><blockquote>
+<p>A switch is a networking hardware that connects devices on computer network to establish a local area network(LAN)</p>
+</blockquote>
+<p><font color=red> In the conputer network, each device is identified with the help of Ip and MAC address.</font></p>
+<p>The switch has the memory, so the switch can store the MAC address table in it memory</p>
+<p><strong>What is MAC address table?</strong><br>In MAC address table, 会将设备的MAC address与连接到switch上的端口对应起来(video:23)</p>
+<h3 id="4-2-Router"><a href="#4-2-Router" class="headerlink" title="4.2  Router"></a>4.2  Router</h3><blockquote>
+<p>A router is a networking device that forwards data packet between computer newtorks<br>A router is connected to at least two networks, commonly two LANs or WANs or a LAN and its ISP’s network</p>
+</blockquote>
+<p>When we say computer networks, they are two different LAN.</p>
+<p><strong>The differences between switch and router</strong></p>
+<ul>
+<li>The switch can connect two computers that belong to the same LAN, while the router can connect two computers that belong to the different LANs.</li>
+<li>The router is a layer 3 device(network layer), while the switch is a 2 layer device(data linke layer)</li>
+<li>Router stores routing table</li>
+<li>Switch(Half/Full Duplex), Router(Full Duplex)</li>
+</ul>
+<h4 id="4-2-1-Working-of-Router"><a href="#4-2-1-Working-of-Router" class="headerlink" title="4.2.1 Working of Router"></a>4.2.1 Working of Router</h4><p><img src="/2022/01/03/Network-note-from-nesco-academy/router.png" alt="img"><br>The router has two interfaces, one interface connect one LAN, and another interface connect another LAN. </p>
+<ol>
+<li>The computer send data and 10.0.0.10 receive it.</li>
+<li>The transfer the data to another interface(192.168.1.10)</li>
+<li>Finally, the data will be received by the destination</li>
+</ol>
+<h2 id="5-Basics-of-Bridge"><a href="#5-Basics-of-Bridge" class="headerlink" title="5 Basics of Bridge"></a>5 Basics of Bridge</h2><ul>
+<li>Understand the basics of bridge</li>
+<li>Know the types of bridge</li>
+<li>Understand the working of bridge</li>
+<li>Understand the difference between router and bridge</li>
+</ul>
+<h3 id="5-1-Concept-of-the-Bridge"><a href="#5-1-Concept-of-the-Bridge" class="headerlink" title="5.1  Concept of the Bridge"></a>5.1  Concept of the Bridge</h3><ol>
+<li>Bridge=Repeater+Functionality of reading MAC address</li>
+<li>It is a layer 2 device</li>
+<li>It is also used for interconnecting two LANs on the <font color=red>same protocol</font></li>
+<li>It is also a two port device</li>
+</ol>
+<h3 id="5-2-Types-of-Bridges"><a href="#5-2-Types-of-Bridges" class="headerlink" title="5.2  Types of Bridges"></a>5.2  Types of Bridges</h3><ul>
+<li>Transparent Bridges<blockquote>
+<ul>
+<li>These are the bridge in which the stations are completely unaware of the bridge’s existance</li>
+<li>Reconfiguration of the station is unnecessary even if the bridge is added or removed from network(unlike the router: we used to give the IP address of the interface as the default gateway for all stations or PCs)</li>
+</ul>
+</blockquote>
+</li>
+<li>Sourece Routing Bridges<blockquote>
+<ul>
+<li>In these bridges, routing operation is performed by source station and the frame specified which route to follow  ??</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="5-3-Working-or-Bridges"><a href="#5-3-Working-or-Bridges" class="headerlink" title="5.3 Working or Bridges"></a>5.3 Working or Bridges</h2><p><img src="/2022/01/03/Network-note-from-nesco-academy/bridge.png" alt="img"></p>
+<p><strong>The differences between the Bridge and Router</strong></p>
+<table>
+<thead>
+<tr>
+<th>Bridge</th>
+<th><small>Router</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><small>connect two LANs running in the same protocols</td>
+<td><small>connect two LANs running on the different protocols</td>
+</tr>
+<tr>
+<td><small>second layer device(process MAC address)</td>
+<td><small>third layer device(process IP address)</td>
+</tr>
+</tbody></table>
+<h2 id="6-Network-Devices"><a href="#6-Network-Devices" class="headerlink" title="6 Network Devices"></a>6 Network Devices</h2><ol>
+<li><p>Repeater</p>
+<blockquote>
+<p>First layer device, operate in the Physical layer. It just regenerates the signal in a single LAN network</p>
+</blockquote>
+</li>
+<li><p>Hub</p>
+<blockquote>
+<p>First layer device(LAN device). Shortcoming: It will broadcast whatever it receives</p>
+</blockquote>
+</li>
+<li><p>Switch</p>
+<blockquote>
+<p>Second layer device(LAN devcie). Connecting two devices which belong to the same single LAN.<br>Unlike the Hub, it can send the data to the exact receiver</p>
+</blockquote>
+</li>
+<li><p>Bridge</p>
+<blockquote>
+<p>Second layer device. It can also regenerates the signal</p>
+</blockquote>
+</li>
+<li><p>Router</p>
+<blockquote>
+<p>Third layer device. Make decisions based on the IP address</p>
+</blockquote>
+</li>
+<li><p>Multi-layer switch(Layer 3 swithc)</p>
+<blockquote>
+<p>can be the switch as well as the router</p>
+</blockquote>
+</li>
+<li><p>Brouter</p>
+<blockquote>
+<p>Combination of router and bridge</p>
+</blockquote>
+</li>
+<li><p>Modem</p>
+</li>
+<li><p>Firewall(Security Device)</p>
+</li>
+</ol>
+<h1 id="7-Physical-layer"><a href="#7-Physical-layer" class="headerlink" title="7 Physical layer"></a>7 Physical layer</h1><ul>
+<li>Understand the fundamental principles of physical layer</li>
+<li>Know about the data and signals<br>(1) One of the major functions of the physical layer is to move data in the form of electronmagnetic signals across a transmission medium.<br>(2) The data usable to a person or an application are not in a form that can be transmitted over a network<br>(3) To be transmitted, data must be transformed to eletromagnetic signals.<br><img src="/2022/01/03/Network-note-from-nesco-academy/physical1.png" alt="img"><br>User generates the data–&gt; Application receives the data–&gt; dat7a have to be converted to signal(<strong>physical layer do tihs conversition</strong>)<br>In source and destination, they focus more on the data. And these data have to be converted to signals by the physical layer</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Notes</category>
+      </categories>
+      <tags>
+        <tag>network</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Django Note</title>
     <url>/2022/01/07/Django/</url>
     <content><![CDATA[<font size=4>
@@ -398,8 +658,21 @@ This is my personal website and it is my first time to try to do it. Usually, I 
 <li>写法<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">  <span class="built_in">filter</span>(key1=value1, key2=value2) <span class="keyword">or</span></span><br><span class="line">  <span class="built_in">filter</span>(key1=value1)</span><br><span class="line">  <span class="built_in">filter</span>(key2=value2)</span><br><span class="line">``` python</span><br><span class="line">mod = Users.objects</span><br><span class="line">ulist = mod.<span class="built_in">all</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> u <span class="keyword">in</span> ulist:</span><br><span class="line">  <span class="built_in">print</span>(u.<span class="built_in">id</span>, u.name, u.age)</span><br><span class="line"><span class="keyword">return</span> HttpResponse(<span class="string">&quot;首页&quot;</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mod = Users.objects</span><br><span class="line">fil = mod.<span class="built_in">filter</span>(name=<span class="string">&#x27;lpr&#x27;</span>)</span><br><span class="line">fil1 = mod.<span class="built_in">filter</span>(age__gt=<span class="number">20</span>)  <span class="comment">#获取所有age大于20的信息</span></span><br><span class="line">fil2 = mod.<span class="built_in">filter</span>(age__gte=<span class="number">20</span>) <span class="comment">#获取所有age&gt;=20的信息</span></span><br><span class="line">fil3 = mod.order_by(<span class="string">&quot;age&quot;</span>)   <span class="comment">#age按照从小到大排序</span></span><br><span class="line">fil4 = mod.order_by(<span class="string">&quot;age&quot;</span>)[:<span class="number">3</span>]  <span class="comment">#只取前三个数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> u <span class="keyword">in</span> fil:</span><br><span class="line">  <span class="built_in">print</span>(u.<span class="built_in">id</span>, u.name, u.age)</span><br><span class="line"><span class="keyword">return</span> HttpResponse(<span class="string">&quot;首页&quot;</span>)</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="8-Django视图层"><a href="#8-Django视图层" class="headerlink" title="8 Django视图层"></a>8 Django视图层</h2><p>一、 URLS: admin path(‘admin/‘, admin.site.urls),</p>
-<p>问题：<br>加载不出静态文件<br>static文件夹位置和template文件夹位置，都应放在相应的app下面</p>
+<h2 id="8-Django视图层"><a href="#8-Django视图层" class="headerlink" title="8 Django视图层"></a>8 Django视图层</h2><p>一、 URLS: admin path(‘admin/‘, admin.site.urls),<br>问题：<br>加载不出静态文件<br>static文件夹位置和template文件夹位置，都应放在相应的app下面</p>
+<h3 id="8-1-相应json数据格式"><a href="#8-1-相应json数据格式" class="headerlink" title="8.1 相应json数据格式"></a>8.1 相应json数据格式</h3><p>在views.py中:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Myview</span>(<span class="params">View</span>):</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">get</span>(<span class="params">self, request, *args, **kwargs</span>):</span></span><br><span class="line">		<span class="keyword">return</span> HttpResponse(<span class="string">&quot;Hello Views!&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">resp05</span>(<span class="params">request</span>):</span></span><br><span class="line">	data = [&#123;<span class="string">&#x27;id&#x27;</span>:<span class="number">1001</span>, <span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;elaine&#x27;</span>, <span class="string">&#x27;age&#x27;</span>:<span class="number">20</span>&#125;,</span><br><span class="line">	&#123;<span class="string">&#x27;id&#x27;</span>:<span class="number">1002</span>, <span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;Mia&#x27;</span>, <span class="string">&#x27;age&#x27;</span>:<span class="number">22</span>&#125;,]</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> JsonResponse(&#123;<span class="string">&quot;data&quot;</span>:data&#125;)</span><br></pre></td></tr></table></figure>
+<p>路由配置</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">path(<span class="string">&#x27;resp04&#x27;</span>, Myview.as_view(), name = <span class="string">&#x27;resp04&#x27;</span>),</span><br></pre></td></tr></table></figure>
+<p>在template 下的myapp中的index.html中</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;% url &#x27;resp05&#x27; %&#125;&quot;</span>&gt;</span>4. 相应json数据格式<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>效果： 在 <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> 网址中访问该页面会出现超链接，链接点进去后显示data内容</p>
+</blockquote>
+<h3 id="8-2-Cookie-的使用"><a href="#8-2-Cookie-的使用" class="headerlink" title="8.2 Cookie 的使用"></a>8.2 Cookie 的使用</h3> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">resp06</span>(<span class="params">request</span>):</span></span><br><span class="line"><span class="comment">#获取当前的相应对象</span></span><br><span class="line">response = HttpResponse(<span class="string">&#x27;cookie 的设置&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用相应对象进行cookie设置</span></span><br><span class="line">response.set_cookie(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line"></span><br><span class="line"> <span class="comment">#返回相应对象</span></span><br><span class="line"><span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取cookie<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(request.COOKIES.get(<span class="string">&#x27;a&#x27;</span>, <span class="literal">None</span>))</span><br></pre></td></tr></table></figure></li>
+</ul>
 ]]></content>
       <categories>
         <category>Notes</category>
