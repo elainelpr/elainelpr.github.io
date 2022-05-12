@@ -1,2 +1,2 @@
 # My perosonal website
-[personal website]<https://peiruliu.cn/>
+This is my [personal website](https://peiruliu.cn/)
